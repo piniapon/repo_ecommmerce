@@ -139,3 +139,20 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.signin {
+  width: 100%;
+  max-width: 330px;
+  height: 20rem;
+  padding: 15px;
+  margin: auto;
+}
+
+#submit{
+border: none;
+}
+
+#submit:hover {
+background-color: rgb(218, 0, 109);
+transition-duration: 0.2s;
+}
