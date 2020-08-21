@@ -40,8 +40,29 @@ var getJSONData = function (url) {
     });
 }
 
+
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-});
+  let userLogged = localStorage.getItem("User-Logged");
+  let userInfo = document.getElementById("userInfo");
+  let userBox = document.getElementById("userBox")
+
+  if (userLogged) {
+    userBox.style = "display: inline-block"
+    userLogged = JSON.parse(userLogged);
+    userInfo.innerText = userInfo.innerText + "Usuario loggeado: " + userLogged.email;
+  }
+
+  document.getElementById("logout").addEventListener("click", function () {
+    localStorage.removeItem("User-Logged");
+    userBox.style = "display: none"
+    window.location = "index.html"
+  })
+
+
+
+});   

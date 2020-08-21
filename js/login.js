@@ -5,11 +5,13 @@ const userURL = "https://danielk2020.github.io/biblioteca/usuarios.json";
 const fields = document.getElementsByTagName("input");
 
 function validateUser(m, p, arr) {
-    var i;
-    for (i = 0; i <= arr.length - 1; i++) {
+    let i;
+    for (i = 0; i < arr.length; i++) {
+
         if (arr[i].email === m && arr[i].password === p) {
             return true
-        } else { return false }
+        }
+
     }
 }
 
@@ -38,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         var email = document.getElementById("inputEmail").value;
         var password = document.getElementById("inputPassword").value;
+        var validUser = validateUser(email, password, usuarios)
 
         const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -67,8 +70,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
             }
         } else {
 
-            if (validateUser(email, password, usuarios)) {
+            if (validUser) {
                 window.location.href = "inicio.html"
+                localStorage.setItem("User-Logged", JSON.stringify({ email: inputEmail.value }))
             } else {
                 mensaje += "el usuario no concuerda con los registros"
             }
@@ -82,23 +86,4 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
 })
-
-            // if (password == "") {
-            //     mensaje += "el campo password no puede estar vacio";
-            //     alert(mensaje);
-            //     document.getElementById("inputPassword").classList.add("is-invalid")
-            // } else if (password.length < 5) {
-            //     mensaje += "la contraseña no puede contener menos de 5 caracteres";
-            //     alert(mensaje);
-            // }
-
-
-            // if (email == "") {
-            //     document.getElementById("inputEmail").classList.add("is-invalid");
-            //     mensaje += "el campo mail no puede quedar vacio"
-            //     alert(mensaje)
-            // } else if (!(re.test(String(email).toLowerCase()))) {
-            //     mensaje += "ingresaste un email invalido"
-            //     alert(mensaje)
-            // }
 
