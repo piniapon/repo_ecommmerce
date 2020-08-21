@@ -143,7 +143,7 @@ a.custom-card:hover {
 .signin {
   width: 100%;
   max-width: 330px;
-  height: 20rem;
+  height: 17rem;
   padding: 15px;
   margin: auto;
 }
@@ -155,4 +155,25 @@ border: none;
 #submit:hover {
 background-color: rgb(218, 0, 109);
 transition-duration: 0.2s;
+}
+
+
+#myForm{
+background: rgba(255, 255, 255, 0.5);
+border-radius: 0.3rem;
+}
+
+#inputPassword, 
+#inputEmail{
+background-color: rgba(255, 255, 255, 0.5);
+}
+
+.fas-turn{
+  -ms-transform: rotate(180deg); /* IE 9 */
+  -webkit-transform: rotate(180deg); /* Safari */
+  transform: rotate(180deg);
+}
+
+#searchBar {
+margin-bottom: 15px;
 }

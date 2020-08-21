@@ -34,18 +34,35 @@
           <p class="lead">Nuestros productos</p>
         </div>
         <div class="container">
+
+          <div class="row">
+
+            <div class="col-md-8 col-sm-12 mb-1 container"></div>
+            <div class="col-md-4 col-sm-12 mb-1 container">
+              <div class="row container p-0 m-0">
+                <div class="col">
+                  <input class="form-control" type="search" placeholder="Busqueda" id="searchBar">
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
           <div class="row">
             <div class="col text-right">
               <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
                 <label class="btn btn-light active" id="sortAsc">
-                  <input type="radio" name="options" autocomplete="off" checked>A-Z
+                  <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-dollar-sign"> <i
+                      class="fas fa-sort-amount-up mr-1"></i></i>
                 </label>
                 <label class="btn btn-light" id="sortDesc">
-                  <input type="radio" name="options" autocomplete="off">Z-A
+                  <input alt="orden ascendente" type="radio" name="options" autocomplete="off"><i
+                    class="fas fa-dollar-sign"> <i class="fas fa-sort-amount-down mr-1"></i></i>
                 </label>
                 <label class="btn btn-light" id="sortByCount">
-                  <input type="radio" name="options" autocomplete="off"><i
-                    class="fas fa-sort-amount-down mr-1"></i>Cant.
+                  <input alt="orden descendente" type="radio" name="options" autocomplete="off"><i id="relevIcon"
+                    class="fas fa-sort-amount-down mr-1"></i><i class="far fa-star"></i>
                 </label>
               </div>
             </div>
@@ -57,11 +74,17 @@
                 <div class="col">
                   <p class="font-weight-normal text-right my-2">Cant.</p>
                 </div>
+
+                <!-- agregue el atributo step para facilitar el incremento del valor con las flechas de teclado -->
+                <!-- me falta mejorar algunas cosas de UI basicas como que cuando se modifique el criterio de filtro se 
+                destilden los botones de filtros anteriores-->
                 <div class="col">
-                  <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+                  <input class="form-control" step="500" min="0" type="number" placeholder="min."
+                    id="rangeFilterCountMin">
                 </div>
                 <div class="col">
-                  <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+                  <input class="form-control" step="500" min="0" type="number" placeholder="máx."
+                    id="rangeFilterCountMax">
                 </div>
                 <div class="col-3 p-0">
                   <div class="btn-group" role="group">
