@@ -185,8 +185,10 @@ margin-bottom: 15px;
 #logout{
 background: none;
 border: none;
+display: none;
 }
 
 #userBox{
 display: none;
 }
+
