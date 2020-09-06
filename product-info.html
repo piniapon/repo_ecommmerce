@@ -13,6 +13,16 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+
+  <style>
+    .list-group-item {
+      margin-bottom: 2rem;
+    }
+
+    .commentInput {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -30,15 +40,63 @@
 
     </div>
   </nav>
+
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega:
-        20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+    <div style="position: relative; width:auto; top: 0;">
+
+      <main role="main" class="pb-5">
+        <div class="text-center p-4">
+          <h2 id="comments-title"></h2>
+          <p class="lead">Comentarios</p>
+        </div>
+        <div class="container">
+
+
+        </div>
     </div>
+
+
+
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6 list-group" id="cat-list-container">
+      </div>
+      <div class="col-3"></div>
+
+    </div>
+
+    <div id="commentInput" class="commentInput">
+
+      <div class="row">
+        <h2 id="comment-heading" style="margin:auto">Dejanos un comentario</h2>
+      </div>
+
+      <div class="form-row">
+        <div class="col-3"></div>
+        <div class="col-6"> <textarea class="form-control" id="commentField" name="comment" id="commentArea"
+            rows="5"></textarea>
+          <div class="row">
+            <div class="col-4">
+
+              <input type="number" name="inputName" id="rating-custom-icons" class="rating" data-clearable="remove"
+                data-icon-lib="fa" data-active-icon="fa-star checked" data-inactive-icon="fa-star"
+                data-clearable-icon="fa-trash-o" value="0" /> </div>
+            <div class="col-4"></div>
+            <div class="col-4"> <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </div>
+
+
   </div>
+  </main>
+  </div>
+  </div>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
@@ -56,10 +114,17 @@
       <div></div>
     </div>
   </div>
+  <!-- Bootstrap 3 -->
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script
+    src="js/Simple-jQuery-Star-Rating-Widget-For-Bootstrap-3-Bootstrap-Rating-Input/bs3/build/bootstrap-rating-input.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script
+    src="js/Simple-jQuery-Star-Rating-Widget-For-Bootstrap-3-Bootstrap-Rating-Input/bs4/build/bootstrap4-rating-input.min.js"></script>
 </body>
 
 </html>

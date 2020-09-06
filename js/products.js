@@ -7,13 +7,19 @@ var relevFlag = false;
 var min = undefined;
 var max = undefined;
 
+
+function saveProductName(name) {
+    localStorage.setItem('productName', JSON.stringify({ product: name }))
+}
+
+
 function showProductsList(array) {
 
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
         let product = array[i];
         htmlContentToAppend += `
-            <a href="category-info.html" class="list-group-item list-group-item-action">
+            <a href="product-info.html" class="list-group-item list-group-item-action"; onclick="saveProductName('` + product.name + `');">
                 <div class="row">
                     <div class="col-3">
                         <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
@@ -193,6 +199,7 @@ for (button of buttons) {
 
 }
 
+
 // esta searchbar puede claramente puede ser mas compleja, tome solo dos test cases a consideracion y esta pensada para recibir
 //solo un termino de busqueda pero dicho termino puede encontrarse en la totalidad del string del nombre de cada objeto.
 
@@ -233,4 +240,5 @@ document.addEventListener("DOMContentLoaded", function (e) {
     });
 
 });
+
 
