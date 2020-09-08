@@ -1,7 +1,14 @@
 var commentsArray = [];
-
+var carArray = [];
 
 document.addEventListener("DOMContentLoaded", function (e) {
+
+    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            carArray = resultObj.data
+            showCarInfo(carArray)
+        }
+    });
 
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -10,15 +17,22 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 
+
+
 });
 
+// si el usuario no esta loggeado no se ve el input de los commentarios.
 
 if (localStorage.getItem("User-Logged")) {
     document.getElementById("commentInput").classList.remove("commentInput");
 }
 
-function showComments(array) {
 
+// Quiero aclarar que el nombre del auto si se guarda y por ende no correponde a las imagenes puesto que la idea del obligatorio
+// era solo trabajar con un solo auto pero queria aplicar guardar algun identificador del producto 
+// (en este caso el nombre, que en un caso real no seria lo mas adecuado) a modo de practica.
+
+function showComments(array) {
     let product = ((JSON.parse(localStorage.getItem("productName")).product));
     let htmlContentToAppend = "";
     for (let i = 0; i < array.length; i++) {
@@ -26,8 +40,8 @@ function showComments(array) {
         let stars = "";
 
 
-        for (let y = 0; y < 5; y++) {
-            if (y < comment.score) {
+        for (let i = 0; i < 5; i++) {
+            if (i < comment.score) {
                 stars = stars + `<span class="fa fa-star checked"></span>`
             } else { stars = stars + `<span class="fa fa-star"></span>` }
         }
@@ -35,14 +49,14 @@ function showComments(array) {
 
         htmlContentToAppend += `
 
-            <a href="product-info.html" class="list-group-item list-group-item-action"; onclick="saveProductName('` + product.name + `');">
+            <div class="list-group-item list-group-item-action"; onclick="saveProductName('` + product.name + `');">
 
               <div class="row">
                     <div class="col">
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1">`+ comment.user + `</h4>
                         </div>
-                        <p class="mb-1">` + comment.description + `</p>
+                        <p style= class="mb-1">"` + comment.description + `"</p>
 
                         <p class="mb-1">` + stars + `</p>
 
@@ -53,15 +67,59 @@ function showComments(array) {
 
                 </div>
 
-            </a>
+            </div>
             `
     }
 
-    document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
-    document.getElementById("comments-title").innerHTML = product;
+    document.getElementById("com-list-container").innerHTML = htmlContentToAppend;
 }
 
+// Las imagenes se agregan de forma dinamica en un carrusel de Bootstrap
 
+function showCarInfo(array) {
+
+    let product = ((JSON.parse(localStorage.getItem("productName")).product));
+    let carouselSlidesToAppend = "";
+    let carDescriptionToAppend = carArray.description;
+    let carPriceToAppend = carArray.cost + " " + carArray.currency;
+    let carSoldToAppend = carArray.soldCount + " " + "vendidos"
+
+
+    for (let i = 0; i < array.images.length; i++) {
+        let image = array.images[i]
+
+        if (i == 0) {
+
+            carouselSlidesToAppend += `
+
+        <div class="carousel-item active">
+        <img class="d-block w-100" src=" ${image} ">
+        <div class="carousel-caption d-none d-md-block">
+        </div>
+      </div>
+
+            `} else {
+
+            carouselSlidesToAppend += `
+
+                <div class="carousel-item">
+                <img class="d-block w-100" src=" ${image} ">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+              </div>
+
+                    `}
+
+    }
+
+
+    document.getElementById("car-title").innerHTML = product;
+    document.getElementById("car-description").innerHTML = carDescriptionToAppend;
+    document.getElementById("carousel-inner").innerHTML = carouselSlidesToAppend;
+    document.getElementById("precio").innerHTML = carPriceToAppend;
+    document.getElementById("vendidos").innerHTML = carSoldToAppend;
+
+}
 
 function saveComment(array) {
     let commentValue = document.getElementById("commentField").value;

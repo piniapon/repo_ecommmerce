@@ -45,22 +45,63 @@
 
     <div style="position: relative; width:auto; top: 0;">
 
-      <main role="main" class="pb-5">
-        <div class="text-center p-4">
-          <h2 id="comments-title"></h2>
-          <p class="lead">Comentarios</p>
+      <main role="main">
+        <div class="text-center pb-8">
+          <h2 class="pb-4" id="car-title"></h2>
+          <p class="pb-4 text-justify" id="car-description"></p>
         </div>
-        <div class="container">
 
 
-        </div>
     </div>
-
-
 
     <div class="row">
       <div class="col-3"></div>
-      <div class="col-6 list-group" id="cat-list-container">
+      <div id="carouselExampleIndicators" class="carousel slide col-6" data-ride="carousel">
+
+        <div id="carousel-inner" class="carousel-inner">
+
+        </div>
+
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <div class="col-3"></div>
+
+    </div>
+
+    <div class="row mb-5 mr-2 ml-2">
+
+      <div class="col-3"></div>
+
+      <div class="col-6">
+        <div class="row d-flex justify-content-between">
+          <h4 id="precio" class="font-weight-light"></h4>
+          <h4 id="vendidos" class="font-weight-light"></h4>
+        </div>
+
+      </div>
+
+      <div class="col-3"></div>
+
+
+    </div>
+
+    <div class="row">
+
+      <h2 id="comment-heading" style="margin:auto">Comentarios</h2>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-3"> </div>
+      <div class="col-6 list-group" id="com-list-container">
       </div>
       <div class="col-3"></div>
 
@@ -77,13 +118,15 @@
         <div class="col-6"> <textarea class="form-control" id="commentField" name="comment" id="commentArea"
             rows="5"></textarea>
           <div class="row">
+
             <div class="col-4">
 
               <input type="number" name="inputName" id="rating-custom-icons" class="rating" data-clearable="remove"
                 data-icon-lib="fa" data-active-icon="fa-star checked" data-inactive-icon="fa-star"
                 data-clearable-icon="fa-trash-o" value="0" /> </div>
             <div class="col-4"></div>
-            <div class="col-4"> <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            <div class="col-4"> <button onclick="saveComment(commentsArray)" type="submit"
+                class="btn btn-primary mb-2">Submit</button>
             </div>
           </div>
         </div>
