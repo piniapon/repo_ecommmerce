@@ -1,5 +1,6 @@
 var commentsArray = [];
 var carArray = [];
+var productsArray = [];
 
 document.addEventListener("DOMContentLoaded", function (e) {
 
@@ -17,7 +18,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 
-
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            productsArray = resultObj.data
+            showRecommended(productsArray, carArray)
+        }
+    });
 
 });
 
@@ -138,4 +144,39 @@ function saveComment(array) {
     showComments(commentsArray);
     document.getElementById("commentField").value = "";
     document.getElementById("rating-custom-icons").value = 0;
+}
+
+function showRecommended(array1, array2) {
+
+    let htmlContentToAppend = "";
+    for (let i = 0; i < array1.length; i++) {
+
+        for (let y = 0; y < array2.relatedProducts.length; y++) {
+
+            if (i == array2.relatedProducts[y]) {
+                let related = array1[i];
+                htmlContentToAppend += `
+            <a href="product-info.html" class="list-group-item list-group-item-action"; onclick="saveProductName('` + related.name + `');">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` + related.imgSrc + `" alt="` + related.description + `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ related.name + `</h4>
+                            <h4 class="mb-1">`+ related.cost + " " + related.currency + `</h4>
+                        </div>
+                        <p class="mb-1">` + related.description + `</p>
+
+                        <p class="mb-1">` + related.soldCount + ` vendidos </p>
+
+                    </div>
+                </div>
+            </a>
+            `
+            }
+        }
+    }
+
+    document.getElementById("rel-list-container").innerHTML = htmlContentToAppend;
 }

@@ -41,8 +41,6 @@ var getJSONData = function (url) {
 }
 
 
-
-
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -51,10 +49,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
   let userInfo = document.getElementById("userInfo");
   let userBox = document.getElementById("userBox");
   let logout = document.getElementById("logout");
+  let drop = document.getElementById("drop");
 
   if (userLogged) {
     userBox.style = "display: inline-block"
     logout.style = "display: inline-block"
+    drop.style = "display:inline-block"
     userLogged = JSON.parse(userLogged);
     userInfo.innerText = userInfo.innerText + "Usuario loggeado: " + userLogged.email;
   }
@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     localStorage.removeItem("User-Logged");
     userBox.style = "display: none"
     logout.style = "display: none"
+    drop.style = "display:none"
     window.location = "index.html"
   })
 

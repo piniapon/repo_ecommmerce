@@ -23,10 +23,22 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <div id="userBox" class="py-2 d-none d-md-inline-block">
-        <p style="display: inline;" id="userInfo"></p> <button class="btn" id="logout"><i
-            class="fas fa-power-off"></i></button>
+      <div style="display: none;" id="userBox" class="py-2 d-none d-md-inline-block">
+
+        <div id="drop" class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <div style="display: inline;" id="userInfo"></div>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="cart.html">Carrito <i class="fas fa-shopping-cart"></i></a>
+            <a class="dropdown-item" href="my-profile.html">Perfil <i class="fas fa-user"></i></a>
+            <a id="logout" class="btn dropdown-item" href="#">logout <p style="display: inline;"></p> <i
+                class="fas fa-power-off"></i></a>
+          </div>
+        </div>
+
+
       </div>
 
     </div>
