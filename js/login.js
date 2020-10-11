@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             if (validUser) {
                 window.location.href = "inicio.html"
                 localStorage.setItem("User-Logged", JSON.stringify({ email: inputEmail.value }))
+
             } else {
                 mensaje += "el usuario no concuerda con los registros"
             }

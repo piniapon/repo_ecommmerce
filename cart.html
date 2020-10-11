@@ -29,6 +29,109 @@
         font-size: 3.5rem;
       }
     }
+
+    tr,
+    th {
+      border: solid rgb(185, 185, 185) 1px;
+      text-align: center;
+    }
+
+    img {
+      width: 10rem;
+    }
+
+
+
+    /* estilo del contador de articulos */
+
+    input[type="number"] {
+      -webkit-appearance: textfield;
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
+
+
+    .number-input button {
+      -webkit-appearance: none;
+      background-color: transparent;
+      border: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin: 0;
+      position: relative;
+    }
+
+    .number-input button:before,
+    .number-input button:after {
+      display: inline-block;
+      position: absolute;
+      content: '';
+      height: 2px;
+      transform: translate(-50%, -50%);
+    }
+
+    .number-input button.plus:after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .number-input input[type=number] {
+      text-align: center;
+    }
+
+
+    .md-number-input.number-input {
+      border: 2px solid #ddd;
+      width: 11.8rem;
+    }
+
+    .md-number-input.number-input button {
+      outline: none;
+      width: 3rem;
+      height: 2rem;
+      padding-top: .8rem;
+    }
+
+    .md-number-input.number-input button.minus {
+      padding-left: 8px;
+    }
+
+    .md-number-input.number-input button.plus {
+      padding-left: 2px;
+    }
+
+    .md-number-input.number-input button:before,
+    .md-number-input.number-input button:after {
+      width: 1rem;
+      background-color: #212121;
+    }
+
+    .md-number-input.number-input input[type=number] {
+      max-width: 5rem;
+      padding: .5rem;
+      border: solid #ddd;
+      border-width: 0 2px;
+      font-size: 2rem;
+      height: 3rem;
+      font-weight: bold;
+      outline: none;
+    }
+
+    @media not all and (min-resolution:.001dpcm) {
+      @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+
+        .number-input.md-number-input.safari_only button:before,
+        .number-input.md-number-input.safari_only button:after {
+          margin-top: -.6rem;
+        }
+      }
+    }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -36,6 +139,8 @@
 </head>
 
 <body>
+
+
   <nav class="site-header sticky-top py-1 bg-dark">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
       <a class="py-2 d-none d-md-inline-block" href="inicio.html">Inicio</a>
@@ -62,14 +167,45 @@
 
     </div>
   </nav>
+
+
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega:
-        25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+    <div class="text-center p-4">
+      <h2>Carrito de compras</h2>
+      <p class="lead">verifica todos los datos de tu compra aqui</p>
     </div>
+
+    <table style="width: 100%;">
+
+      <button class="btn btn-light" id="toggleCurrency">
+        <i class="fas fa-dollar-sign"></i>
+      </button>
+
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>imagen</th>
+          <th>cantidad</th>
+          <th>precio unitario</th>
+          <th>sub total</th>
+        </tr>
+      </thead>
+      <tbody id="tableContent">
+
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>Total</td>
+          <td id="total"></td>
+        </tr>
+      </tfoot>
+    </table>
+
   </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
