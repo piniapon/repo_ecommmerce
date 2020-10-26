@@ -132,6 +132,10 @@
         }
       }
     }
+
+    input {
+      margin-top: 1rem;
+    }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -169,6 +173,206 @@
   </nav>
 
 
+
+
+  <div id="myModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ingresa tu Metodo de pago</h5>
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">Direccion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                aria-selected="false">Metodo de Pago</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+                aria-selected="false">Contact</a>
+            </li>
+          </ul>
+
+
+          <div class="tab-content" id="myTabContent">
+
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+              <form class="needs-validation" novalidate>
+
+                <div class="form-group" novalidate>
+                  <label for="Direccion">
+                    <h5 class="modal-title">Direccion de envio</h5>
+                  </label>
+                  <div class="d-flex justify-content-around form-row">
+                    <input type="text" class="col-5 form-control" id="inputDireccion" placeholder="Pais" required>
+                    <input type="text" class="col-5 form-control" id="inputDireccion" placeholder="Departamento"
+                      required>
+                  </div>
+
+                  <div class="d-flex justify-content-around form-row"> <input type="text" class="form-control"
+                      id="inputDireccion" placeholder="Calle" required>
+                  </div>
+                  <div class="d-flex justify-content-between form-row"> </div>
+
+
+                  <input type="text" class="form-control" id="inputCalle" placeholder="numero de puerta" required>
+                  <input type="text" class="form-control" id="inputNumero" placeholder="esquina" required>
+                </div>
+
+
+                <h5 class="modal-title">metodo de pago</h5>
+
+                <label for="credito">Credito</label>
+                <input value="credito" name="metodo" type="radio" checked>
+                <label for="transferencia">Transferencia</label>
+                <input value="transferencia" name="metodo" type="radio">
+
+
+                <div id="credit">
+
+                  <div class="d-flex justify-content-around form-row">
+                    <input type="text" class="col-5 form-control creditInput" id="inputNombre"
+                      placeholder="Titular de la tarjeta" required>
+                    <input type="text" class="col-5 form-control creditInput" id="inputEmail" placeholder="Email"
+                      required>
+                  </div>
+
+                  <div class="d-flex justify-content-around form-row">
+                    <input type="text" class="col-5 form-control creditInput" id="inputDireccionFacturacion"
+                      placeholder="Direccion de facturacion" required>
+                    <input type="text" class="col-5 form-control creditInput" id="inputTarjeta" pattern="[0-9]"
+                      placeholder="Numero de tarjeta" required>
+                  </div>
+
+                  <div class="d-flex justify-content-around form-row">
+                    <input type="text" class="col-5 form-control creditInput" id="inputvencimiento"
+                      placeholder="vencimiento: 11/22" required>
+                    <input type="text" class="col-5 form-control creditInput" id="inputCodigoSeguridad"
+                      placeholder="Codigo de Seguridad" required>
+                  </div>
+
+                </div>
+
+
+
+
+                <div style="display: none;" id="transferencia">
+
+
+                  <div class="d-flex justify-content-around form-row">
+                    <input type="text" class="col-5 form-control transInput" id="inputTitular"
+                      placeholder="titular de la cuenta" required>
+                    <input type="text" class="col-5 form-control transInput" id="inputCedula" placeholder="Cedula"
+                      required>
+                  </div>
+
+                  <div class="d-flex justify-content-around form-row">
+                    <input type="text" class="col-5 form-control transInput" id="inputBanco" placeholder="Banco"
+                      required>
+                    <input type="text" class="col-5 form-control transInput" id="inputSucursal"
+                      placeholder="Codigo de Seguridad" required>
+                  </div>
+
+                  <div class="d-flex justify-content-around form-row">
+                    <input type="text" class="col-5 form-control transInput" id="inputNumeroCuenta"
+                      placeholder="Numero de Cuenta" required>
+                    <input type="text" class="col-5 form-control transInput" id="inputConcepto"
+                      placeholder="Concepto de la transferencia" required>
+                  </div>
+
+                </div>
+
+                <button class="btn btn-secondary" type="submit">enviar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
+              </form>
+
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+              <div id="credito">
+
+                <form class="needs-validation" novalidate>
+
+                  <div class="row">
+                    <div class="col-50">
+                      <h3>Billing Address</h3>
+                      <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                      <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+                      <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                      <input type="text" id="email" name="email" placeholder="john@example.com">
+                      <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                      <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+                      <label for="city"><i class="fa fa-institution"></i> City</label>
+                      <input type="text" id="city" name="city" placeholder="New York">
+
+                      <div class="row">
+                        <div class="col-50">
+                          <label for="state">State</label>
+                          <input type="text" id="state" name="state" placeholder="NY">
+                        </div>
+                        <div class="col-50">
+                          <label for="zip">Zip</label>
+                          <input type="text" id="zip" name="zip" placeholder="10001">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-50">
+                      <h3>Payment</h3>
+                      <label for="fname">Accepted Cards</label>
+                      <div class="icon-container">
+                        <i class="fa fa-cc-visa" style="color:navy;"></i>
+                        <i class="fa fa-cc-amex" style="color:blue;"></i>
+                        <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                        <i class="fa fa-cc-discover" style="color:orange;"></i>
+                      </div>
+                      <label for="cname">Name on Card</label>
+                      <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+                      <label for="ccnum">Credit card number</label>
+                      <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                      <label for="expmonth">Exp Month</label>
+                      <input type="text" id="expmonth" name="expmonth" placeholder="September">
+
+                      <div class="row">
+                        <div class="col-50">
+                          <label for="expyear">Exp Year</label>
+                          <input type="text" id="expyear" name="expyear" placeholder="2018">
+                        </div>
+                        <div class="col-50">
+                          <label for="cvv">CVV</label>
+                          <input type="text" id="cvv" name="cvv" placeholder="352">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <label>
+                    <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+                  </label>
+                  <input type="submit" value="Continue to checkout" class="btn">
+                </form>
+
+
+              </div>
+              <div id="transferencia"></div>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="container p-5">
 
     <div class="text-center p-4">
@@ -178,9 +382,6 @@
 
     <table style="width: 100%;">
 
-      <button class="btn btn-light" id="toggleCurrency">
-        <i class="fas fa-dollar-sign"></i>
-      </button>
 
       <thead>
         <tr>
@@ -189,6 +390,9 @@
           <th>cantidad</th>
           <th>precio unitario</th>
           <th>sub total</th>
+          <th><button class="btn btn-light" id="toggleCurrency">
+              UYU <i class="fas fa-exchange-alt"></i>
+            </button></th>
         </tr>
       </thead>
       <tbody id="tableContent">
@@ -196,15 +400,49 @@
       </tbody>
 
       <tfoot>
-        <tr>
+
+
+
+        <tr style="border: none;">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>factura</td>
+          <td id="total"></td>
+        </tr>
+
+        <tr class="p" style="border: none;">
+          <td>metodo de envio</td>
+          <td><label for="standard">standard <i style="display: block;" class="fas fa-dolly"></i></label>
+            <input class="inputValue" onchange="calc()" checked value="standard" name="envio" type="radio">
+          </td>
+          <td><label for="express">Express <i style="display: block;" class="fas fa-truck"></i></label>
+            <input class="inputValue" onchange="calc()" value="express" name="envio" type="radio"></td>
+          <td><label for="premium">Premium <i style="display: block;" class="fas fa-shipping-fast"></i></label>
+            <input class="inputValue" onchange="calc()" value="premium" name="envio" type="radio"></td>
+          </td>
+          <td style="border-bottom: solid gray 3px" id="envioValue"></td>
+        </tr>
+
+        <tr style="border: none;">
           <td></td>
           <td></td>
           <td></td>
           <td>Total</td>
-          <td id="total"></td>
+          <td id="final"></td>
         </tr>
+
       </tfoot>
     </table>
+
+    <div class="row">
+      <div class="col-8"></div>
+      <div class="col-4  d-flex justify-content-end">
+        <button data-toggle="modal" data-target="#myModal" id="purchase" class="btn btn-primary">continuar</button>
+      </div>
+    </div>
+
+
 
   </div>
   <div id="spinner-wrapper">
@@ -215,6 +453,8 @@
       <div></div>
     </div>
   </div>
+
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
