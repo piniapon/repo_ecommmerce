@@ -17,6 +17,8 @@ function validateUser(m, p, arr) {
 
 document.addEventListener("DOMContentLoaded", function (e) {
 
+    let userData = localStorage.getItem("user-data");
+
     var form = document.getElementById("myForm");
     function handleForm(event) { event.preventDefault(); }
     form.addEventListener('submit', handleForm);

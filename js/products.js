@@ -19,23 +19,29 @@ function showProductsList(array) {
     for (let i = 0; i < array.length; i++) {
         let product = array[i];
         htmlContentToAppend += `
+
+        <div class="col col-xl-3 col-md-6 col-sm-12 col-xs-12">
+        
             <a href="product-info.html" class="list-group-item list-group-item-action"; onclick="saveProductName('` + product.name + `');">
-                <div class="row">
-                    <div class="col-3">
+
+          
+                <div class="d-flex flex-column">
+                    
                         <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
-                    </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
+                   
+                    
                             <h4 class="mb-1">`+ product.name + `</h4>
                             <h4 class="mb-1">`+ product.cost + " " + product.currency + `</h4>
-                        </div>
+                        
                         <p class="mb-1">` + product.description + `</p>
 
                         <p class="mb-1">` + product.soldCount + ` vendidos </p>
 
-                    </div>
+                    
                 </div>
+               
             </a>
+            </div>
             `
     }
 

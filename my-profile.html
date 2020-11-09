@@ -29,6 +29,23 @@
         font-size: 3.5rem;
       }
     }
+
+    .profile-container {
+      width: 15rem;
+      height: 15rem;
+      background-image: url(./img/defaulProfile.png);
+      background-position: center;
+      background-size: cover;
+      border-radius: 100%;
+    }
+
+    p {
+      font-weight: bold;
+    }
+
+    p>span {
+      font-weight: lighter;
+    }
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -63,11 +80,42 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+    <div class="text-center p-4">
+      <h2>Mi perfil</h2>
+      <p class="lead">Encuentra y modifica tus datos de perfil aqui</p>
+
+
+
+    </div>
+    <div class="alert alert-secondary" role="alert" style="position: relative; width:auto; top: 0;">
+
+      <div class="row">
+        <div class="col col-lg-3 col-md-6 col-sm-12">
+          <div class="profile-container">
+
+          </div>
+
+        </div>
+        <div class="col col-lg-5 col-md-6 col-sm-12 m-auto d-flex justify-content-center">
+
+          <div class="datos">
+
+            <h4> <span id="nombre">Nombre</span> <span id="apellido">Apellido</span></h4>
+            <p>Edad: <span id="edad"></span> </p>
+            <p>Email: <span id="mail"></span></p>
+            <p>direccion: <span id="calle"> </span> <span id="puerta"></span> <span id="esquina"></span>
+            </p>
+            <p>telefono: <span id="telefono"> </span></p>
+          </div>
+        </div>
+        <div class="col col-lg-4 col-md-12 col-sm-12 d-flex justify-content-center align-items-center">
+          <button style="height: 4rem;" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">Modificar
+            perfil</button>
+        </div>
+      </div>
+
+
     </div>
   </div>
   <footer class="text-muted bg-light">
@@ -90,6 +138,73 @@
       <div></div>
     </div>
   </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modifica tus datos aca</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="needs-validation" novalidate>
+
+            <div class="form-group" novalidate>
+              <label for="nombre">
+                <h5 class="modal-title">Nombre</h5>
+              </label>
+              <div class="d-flex justify-content-around form-row">
+                <input type="text" class="col-5 form-control" id="inputNombre" placeholder="Nombre" required>
+                <input type="text" class="col-5 form-control" id="inputApellido" placeholder="Apellido" required>
+              </div>
+
+              <label for="edad">
+                <h5 class="modal-title">Edad</h5>
+              </label>
+
+              <div class="d-flex justify-content-around form-row">
+                <input id="inputEdad" class="form-control" min="1" type="number" required>
+              </div>
+
+              <label for="direccion">
+                <h5 class="modal-title">Direccion</h5>
+              </label>
+
+              <div class="d-flex justify-content-around form-row">
+                <input type="text" class="form-control" id="inputCalle" placeholder="Calle" required>
+              </div>
+              <div class="d-flex justify-content-between form-row"> </div>
+
+
+              <input type="text" class="form-control" id="inputPuerta" placeholder="numero de puerta" required>
+              <input type="text" class="form-control" id="inputEsquina" placeholder="esquina" required>
+
+              <label for="contacto">
+                <h5 class="modal-title">Contacto</h5>
+              </label>
+
+              <div class="d-flex justify-content-between form-row"> </div>
+
+
+              <input type="email" class="form-control" id="inputMail" placeholder="xxx@mail.com" required>
+              <input type="text" class="form-control" id="inputTelefono" placeholder="+(codigo)000-000-000" required>
+
+
+              <button class="btn btn-primary" type="submit" data-toggle="modal">Guardar</button>
+
+            </div>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
